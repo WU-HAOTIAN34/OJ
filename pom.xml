@@ -10,6 +10,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>project-common</module>
+        <module>mapper-generator</module>
+        <module>oj-user8001</module>
     </modules>
 
     <properties>
