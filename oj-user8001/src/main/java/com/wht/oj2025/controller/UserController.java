@@ -26,7 +26,8 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
-    public Result<User> register(@RequestBody UserRegisterDTO userRegisterDTO) {
+    public Result<Long> register(@RequestBody UserRegisterDTO userRegisterDTO) {
+        log.info("register user : {}", userRegisterDTO);
         if (userRegisterDTO == null) {
             throw new ParameterException(ResponseCode.PARAMS_ERROR);
         }
@@ -36,7 +37,7 @@ public class UserController {
             throw new ParameterException(CommonConstant.PARAM_VOID);
         }
         User res = userService.register(userRegisterDTO);
-        return Result.success(res);
+        return Result.success(res.getId());
     }
 
 
