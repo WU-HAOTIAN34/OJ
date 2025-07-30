@@ -10,6 +10,7 @@ public enum ResponseCode {
     NOT_FOUND(404, "not found"),
     PARAMS_ERROR(400, "parameters error"),
     INTERNAL_SERVER_ERROR(500, "未知系统错误"),
+    OPERATION_FAIL(405, "操作失败"),
     NULL(null, null);
 
     private final Integer code;

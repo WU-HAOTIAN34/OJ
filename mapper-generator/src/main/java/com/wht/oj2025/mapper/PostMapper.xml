@@ -8,12 +8,12 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="tags" jdbcType="VARCHAR" property="tags" />
-    <result column="thumbNum" jdbcType="INTEGER" property="thumbnum" />
-    <result column="favourNum" jdbcType="INTEGER" property="favournum" />
-    <result column="userId" jdbcType="BIGINT" property="userid" />
-    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
-    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
-    <result column="isDelete" jdbcType="TINYINT" property="isdelete" />
+    <result column="thumbNum" jdbcType="INTEGER" property="thumbNum" />
+    <result column="favourNum" jdbcType="INTEGER" property="favourNum" />
+    <result column="userId" jdbcType="BIGINT" property="userId" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="isDelete" jdbcType="TINYINT" property="isDelete" />
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
 </mapper>

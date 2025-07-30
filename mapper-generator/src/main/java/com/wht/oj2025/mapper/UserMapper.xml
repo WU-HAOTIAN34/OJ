@@ -6,16 +6,16 @@
       WARNING - @mbg.generated
     -->
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="userAccount" jdbcType="VARCHAR" property="useraccount" />
-    <result column="userPassword" jdbcType="VARCHAR" property="userpassword" />
-    <result column="unionId" jdbcType="VARCHAR" property="unionid" />
-    <result column="mpOpenId" jdbcType="VARCHAR" property="mpopenid" />
-    <result column="userName" jdbcType="VARCHAR" property="username" />
-    <result column="userAvatar" jdbcType="VARCHAR" property="useravatar" />
-    <result column="userProfile" jdbcType="VARCHAR" property="userprofile" />
-    <result column="userRole" jdbcType="VARCHAR" property="userrole" />
-    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
-    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
-    <result column="isDelete" jdbcType="TINYINT" property="isdelete" />
+    <result column="userAccount" jdbcType="VARCHAR" property="userAccount" />
+    <result column="userPassword" jdbcType="VARCHAR" property="userPassword" />
+    <result column="unionId" jdbcType="VARCHAR" property="unionId" />
+    <result column="mpOpenId" jdbcType="VARCHAR" property="mpOpenId" />
+    <result column="userName" jdbcType="VARCHAR" property="userName" />
+    <result column="userAvatar" jdbcType="VARCHAR" property="userAvatar" />
+    <result column="userProfile" jdbcType="VARCHAR" property="userProfile" />
+    <result column="userRole" jdbcType="VARCHAR" property="userRole" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="isDelete" jdbcType="TINYINT" property="isDelete" />
   </resultMap>
 </mapper>

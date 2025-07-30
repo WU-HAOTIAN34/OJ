@@ -18,68 +18,57 @@ public class User {
     /**
      * 账号
      */
-    @Column(name = "userAccount")
-    private String useraccount;
+    private String userAccount;
 
     /**
      * 密码
      */
-    @Column(name = "userPassword")
-    private String userpassword;
+    private String userPassword;
 
     /**
      * 微信开放平台id
      */
-    @Column(name = "unionId")
-    private String unionid;
+    private String unionId;
 
     /**
      * 公众号openId
      */
-    @Column(name = "mpOpenId")
-    private String mpopenid;
+    private String mpOpenId;
 
     /**
      * 用户昵称
      */
-    @Column(name = "userName")
-    private String username;
+    private String userName;
 
     /**
      * 用户头像
      */
-    @Column(name = "userAvatar")
-    private String useravatar;
+    private String userAvatar;
 
     /**
      * 用户简介
      */
-    @Column(name = "userProfile")
-    private String userprofile;
+    private String userProfile;
 
     /**
      * 用户角色：user/admin/ban
      */
-    @Column(name = "userRole")
-    private String userrole;
+    private String userRole;
 
     /**
      * 创建时间
      */
-    @Column(name = "createTime")
-    private Date createtime;
+    private Date createTime;
 
     /**
      * 更新时间
      */
-    @Column(name = "updateTime")
-    private Date updatetime;
+    private Date updateTime;
 
     /**
      * 是否删除
      */
-    @Column(name = "isDelete")
-    private Byte isdelete;
+    private Byte isDelete;
 
     /**
      * 获取id
@@ -102,198 +91,198 @@ public class User {
     /**
      * 获取账号
      *
-     * @return useraccount - 账号
+     * @return userAccount - 账号
      */
-    public String getUseraccount() {
-        return useraccount;
+    public String getUserAccount() {
+        return userAccount;
     }
 
     /**
      * 设置账号
      *
-     * @param useraccount 账号
+     * @param userAccount 账号
      */
-    public void setUseraccount(String useraccount) {
-        this.useraccount = useraccount;
+    public void setUserAccount(String userAccount) {
+        this.userAccount = userAccount;
     }
 
     /**
      * 获取密码
      *
-     * @return userpassword - 密码
+     * @return userPassword - 密码
      */
-    public String getUserpassword() {
-        return userpassword;
+    public String getUserPassword() {
+        return userPassword;
     }
 
     /**
      * 设置密码
      *
-     * @param userpassword 密码
+     * @param userPassword 密码
      */
-    public void setUserpassword(String userpassword) {
-        this.userpassword = userpassword;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
     /**
      * 获取微信开放平台id
      *
-     * @return unionid - 微信开放平台id
+     * @return unionId - 微信开放平台id
      */
-    public String getUnionid() {
-        return unionid;
+    public String getUnionId() {
+        return unionId;
     }
 
     /**
      * 设置微信开放平台id
      *
-     * @param unionid 微信开放平台id
+     * @param unionId 微信开放平台id
      */
-    public void setUnionid(String unionid) {
-        this.unionid = unionid;
+    public void setUnionId(String unionId) {
+        this.unionId = unionId;
     }
 
     /**
      * 获取公众号openId
      *
-     * @return mpopenid - 公众号openId
+     * @return mpOpenId - 公众号openId
      */
-    public String getMpopenid() {
-        return mpopenid;
+    public String getMpOpenId() {
+        return mpOpenId;
     }
 
     /**
      * 设置公众号openId
      *
-     * @param mpopenid 公众号openId
+     * @param mpOpenId 公众号openId
      */
-    public void setMpopenid(String mpopenid) {
-        this.mpopenid = mpopenid;
+    public void setMpOpenId(String mpOpenId) {
+        this.mpOpenId = mpOpenId;
     }
 
     /**
      * 获取用户昵称
      *
-     * @return username - 用户昵称
+     * @return userName - 用户昵称
      */
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
     /**
      * 设置用户昵称
      *
-     * @param username 用户昵称
+     * @param userName 用户昵称
      */
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     /**
      * 获取用户头像
      *
-     * @return useravatar - 用户头像
+     * @return userAvatar - 用户头像
      */
-    public String getUseravatar() {
-        return useravatar;
+    public String getUserAvatar() {
+        return userAvatar;
     }
 
     /**
      * 设置用户头像
      *
-     * @param useravatar 用户头像
+     * @param userAvatar 用户头像
      */
-    public void setUseravatar(String useravatar) {
-        this.useravatar = useravatar;
+    public void setUserAvatar(String userAvatar) {
+        this.userAvatar = userAvatar;
     }
 
     /**
      * 获取用户简介
      *
-     * @return userprofile - 用户简介
+     * @return userProfile - 用户简介
      */
-    public String getUserprofile() {
-        return userprofile;
+    public String getUserProfile() {
+        return userProfile;
     }
 
     /**
      * 设置用户简介
      *
-     * @param userprofile 用户简介
+     * @param userProfile 用户简介
      */
-    public void setUserprofile(String userprofile) {
-        this.userprofile = userprofile;
+    public void setUserProfile(String userProfile) {
+        this.userProfile = userProfile;
     }
 
     /**
      * 获取用户角色：user/admin/ban
      *
-     * @return userrole - 用户角色：user/admin/ban
+     * @return userRole - 用户角色：user/admin/ban
      */
-    public String getUserrole() {
-        return userrole;
+    public String getUserRole() {
+        return userRole;
     }
 
     /**
      * 设置用户角色：user/admin/ban
      *
-     * @param userrole 用户角色：user/admin/ban
+     * @param userRole 用户角色：user/admin/ban
      */
-    public void setUserrole(String userrole) {
-        this.userrole = userrole;
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
     }
 
     /**
      * 获取创建时间
      *
-     * @return createtime - 创建时间
+     * @return createTime - 创建时间
      */
-    public Date getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
     /**
      * 设置创建时间
      *
-     * @param createtime 创建时间
+     * @param createTime 创建时间
      */
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**
      * 获取更新时间
      *
-     * @return updatetime - 更新时间
+     * @return updateTime - 更新时间
      */
-    public Date getUpdatetime() {
-        return updatetime;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
     /**
      * 设置更新时间
      *
-     * @param updatetime 更新时间
+     * @param updateTime 更新时间
      */
-    public void setUpdatetime(Date updatetime) {
-        this.updatetime = updatetime;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     /**
      * 获取是否删除
      *
-     * @return isdelete - 是否删除
+     * @return isDelete - 是否删除
      */
-    public Byte getIsdelete() {
-        return isdelete;
+    public Byte getIsDelete() {
+        return isDelete;
     }
 
     /**
      * 设置是否删除
      *
-     * @param isdelete 是否删除
+     * @param isDelete 是否删除
      */
-    public void setIsdelete(Byte isdelete) {
-        this.isdelete = isdelete;
+    public void setIsDelete(Byte isDelete) {
+        this.isDelete = isDelete;
     }
 }

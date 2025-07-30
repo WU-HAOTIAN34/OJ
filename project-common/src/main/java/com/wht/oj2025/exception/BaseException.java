@@ -14,4 +14,13 @@ public class BaseException extends RuntimeException {
         super(code.getMessage());
         this.code = code.getCode();
     }
+
+    public BaseException(String message) {
+        super(message);
+        this.code = ResponseCode.OPERATION_FAIL.getCode();
+    }
+
+    public Integer getCode(){
+        return code;
+    }
 }

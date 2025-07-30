@@ -28,32 +28,27 @@ public class QuestionSubmit {
     /**
      * 题目 id
      */
-    @Column(name = "questionId")
-    private Long questionid;
+    private Long questionId;
 
     /**
      * 创建用户 id
      */
-    @Column(name = "userId")
-    private Long userid;
+    private Long userId;
 
     /**
      * 创建时间
      */
-    @Column(name = "createTime")
-    private Date createtime;
+    private Date createTime;
 
     /**
      * 更新时间
      */
-    @Column(name = "updateTime")
-    private Date updatetime;
+    private Date updateTime;
 
     /**
      * 是否删除
      */
-    @Column(name = "isDelete")
-    private Byte isdelete;
+    private Byte isDelete;
 
     /**
      * 用户代码
@@ -63,8 +58,7 @@ public class QuestionSubmit {
     /**
      * 判题信息（json 对象）
      */
-    @Column(name = "judgeInfo")
-    private String judgeinfo;
+    private String judgeInfo;
 
     /**
      * 获取id
@@ -123,91 +117,91 @@ public class QuestionSubmit {
     /**
      * 获取题目 id
      *
-     * @return questionid - 题目 id
+     * @return questionId - 题目 id
      */
-    public Long getQuestionid() {
-        return questionid;
+    public Long getQuestionId() {
+        return questionId;
     }
 
     /**
      * 设置题目 id
      *
-     * @param questionid 题目 id
+     * @param questionId 题目 id
      */
-    public void setQuestionid(Long questionid) {
-        this.questionid = questionid;
+    public void setQuestionId(Long questionId) {
+        this.questionId = questionId;
     }
 
     /**
      * 获取创建用户 id
      *
-     * @return userid - 创建用户 id
+     * @return userId - 创建用户 id
      */
-    public Long getUserid() {
-        return userid;
+    public Long getUserId() {
+        return userId;
     }
 
     /**
      * 设置创建用户 id
      *
-     * @param userid 创建用户 id
+     * @param userId 创建用户 id
      */
-    public void setUserid(Long userid) {
-        this.userid = userid;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     /**
      * 获取创建时间
      *
-     * @return createtime - 创建时间
+     * @return createTime - 创建时间
      */
-    public Date getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
     /**
      * 设置创建时间
      *
-     * @param createtime 创建时间
+     * @param createTime 创建时间
      */
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**
      * 获取更新时间
      *
-     * @return updatetime - 更新时间
+     * @return updateTime - 更新时间
      */
-    public Date getUpdatetime() {
-        return updatetime;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
     /**
      * 设置更新时间
      *
-     * @param updatetime 更新时间
+     * @param updateTime 更新时间
      */
-    public void setUpdatetime(Date updatetime) {
-        this.updatetime = updatetime;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     /**
      * 获取是否删除
      *
-     * @return isdelete - 是否删除
+     * @return isDelete - 是否删除
      */
-    public Byte getIsdelete() {
-        return isdelete;
+    public Byte getIsDelete() {
+        return isDelete;
     }
 
     /**
      * 设置是否删除
      *
-     * @param isdelete 是否删除
+     * @param isDelete 是否删除
      */
-    public void setIsdelete(Byte isdelete) {
-        this.isdelete = isdelete;
+    public void setIsDelete(Byte isDelete) {
+        this.isDelete = isDelete;
     }
 
     /**
@@ -231,18 +225,18 @@ public class QuestionSubmit {
     /**
      * 获取判题信息（json 对象）
      *
-     * @return judgeinfo - 判题信息（json 对象）
+     * @return judgeInfo - 判题信息（json 对象）
      */
-    public String getJudgeinfo() {
-        return judgeinfo;
+    public String getJudgeInfo() {
+        return judgeInfo;
     }
 
     /**
      * 设置判题信息（json 对象）
      *
-     * @param judgeinfo 判题信息（json 对象）
+     * @param judgeInfo 判题信息（json 对象）
      */
-    public void setJudgeinfo(String judgeinfo) {
-        this.judgeinfo = judgeinfo;
+    public void setJudgeInfo(String judgeInfo) {
+        this.judgeInfo = judgeInfo;
     }
 }

@@ -28,26 +28,32 @@
 
 
         <table tableName="user" domainObjectName="User">
+            <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
         <table tableName="question" domainObjectName="Question">
+            <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
         <table tableName="post" domainObjectName="Post">
+            <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
         <table tableName="post_favour" domainObjectName="PostFavour">
+            <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
         <table tableName="post_thumb" domainObjectName="PostThumb">
+            <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
         <table tableName="question_submit" domainObjectName="QuestionSubmit">
+            <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 

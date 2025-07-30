@@ -6,4 +6,7 @@ public class ParameterException extends BaseException {
     public ParameterException(ResponseCode responseCode) {
         super(responseCode);
     }
+    public ParameterException(String msg) {
+        super(msg);
+    }
 }

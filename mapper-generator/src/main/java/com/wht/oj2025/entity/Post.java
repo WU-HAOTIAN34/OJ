@@ -28,38 +28,32 @@ public class Post {
     /**
      * 点赞数
      */
-    @Column(name = "thumbNum")
-    private Integer thumbnum;
+    private Integer thumbNum;
 
     /**
      * 收藏数
      */
-    @Column(name = "favourNum")
-    private Integer favournum;
+    private Integer favourNum;
 
     /**
      * 创建用户 id
      */
-    @Column(name = "userId")
-    private Long userid;
+    private Long userId;
 
     /**
      * 创建时间
      */
-    @Column(name = "createTime")
-    private Date createtime;
+    private Date createTime;
 
     /**
      * 更新时间
      */
-    @Column(name = "updateTime")
-    private Date updatetime;
+    private Date updateTime;
 
     /**
      * 是否删除
      */
-    @Column(name = "isDelete")
-    private Byte isdelete;
+    private Byte isDelete;
 
     /**
      * 内容
@@ -123,109 +117,109 @@ public class Post {
     /**
      * 获取点赞数
      *
-     * @return thumbnum - 点赞数
+     * @return thumbNum - 点赞数
      */
-    public Integer getThumbnum() {
-        return thumbnum;
+    public Integer getThumbNum() {
+        return thumbNum;
     }
 
     /**
      * 设置点赞数
      *
-     * @param thumbnum 点赞数
+     * @param thumbNum 点赞数
      */
-    public void setThumbnum(Integer thumbnum) {
-        this.thumbnum = thumbnum;
+    public void setThumbNum(Integer thumbNum) {
+        this.thumbNum = thumbNum;
     }
 
     /**
      * 获取收藏数
      *
-     * @return favournum - 收藏数
+     * @return favourNum - 收藏数
      */
-    public Integer getFavournum() {
-        return favournum;
+    public Integer getFavourNum() {
+        return favourNum;
     }
 
     /**
      * 设置收藏数
      *
-     * @param favournum 收藏数
+     * @param favourNum 收藏数
      */
-    public void setFavournum(Integer favournum) {
-        this.favournum = favournum;
+    public void setFavourNum(Integer favourNum) {
+        this.favourNum = favourNum;
     }
 
     /**
      * 获取创建用户 id
      *
-     * @return userid - 创建用户 id
+     * @return userId - 创建用户 id
      */
-    public Long getUserid() {
-        return userid;
+    public Long getUserId() {
+        return userId;
     }
 
     /**
      * 设置创建用户 id
      *
-     * @param userid 创建用户 id
+     * @param userId 创建用户 id
      */
-    public void setUserid(Long userid) {
-        this.userid = userid;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     /**
      * 获取创建时间
      *
-     * @return createtime - 创建时间
+     * @return createTime - 创建时间
      */
-    public Date getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
     /**
      * 设置创建时间
      *
-     * @param createtime 创建时间
+     * @param createTime 创建时间
      */
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**
      * 获取更新时间
      *
-     * @return updatetime - 更新时间
+     * @return updateTime - 更新时间
      */
-    public Date getUpdatetime() {
-        return updatetime;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
     /**
      * 设置更新时间
      *
-     * @param updatetime 更新时间
+     * @param updateTime 更新时间
      */
-    public void setUpdatetime(Date updatetime) {
-        this.updatetime = updatetime;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     /**
      * 获取是否删除
      *
-     * @return isdelete - 是否删除
+     * @return isDelete - 是否删除
      */
-    public Byte getIsdelete() {
-        return isdelete;
+    public Byte getIsDelete() {
+        return isDelete;
     }
 
     /**
      * 设置是否删除
      *
-     * @param isdelete 是否删除
+     * @param isDelete 是否删除
      */
-    public void setIsdelete(Byte isdelete) {
-        this.isdelete = isdelete;
+    public void setIsDelete(Byte isDelete) {
+        this.isDelete = isDelete;
     }
 
     /**

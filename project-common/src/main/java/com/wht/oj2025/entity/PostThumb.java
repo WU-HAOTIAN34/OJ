@@ -1,17 +1,15 @@
 package com.wht.oj2025.entity;
 
-import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 表名：post_thumb
 */
 @Table(name = "post_thumb")
-public class PostThumb implements Serializable {
+public class PostThumb {
     /**
      * id
      */
@@ -22,26 +20,22 @@ public class PostThumb implements Serializable {
     /**
      * 帖子 id
      */
-    @Column(name = "postId")
-    private Long postid;
+    private Long postId;
 
     /**
      * 创建用户 id
      */
-    @Column(name = "userId")
-    private Long userid;
+    private Long userId;
 
     /**
      * 创建时间
      */
-    @Column(name = "createTime")
-    private Date createtime;
+    private Date createTime;
 
     /**
      * 更新时间
      */
-    @Column(name = "updateTime")
-    private Date updatetime;
+    private Date updateTime;
 
     /**
      * 获取id
@@ -64,72 +58,72 @@ public class PostThumb implements Serializable {
     /**
      * 获取帖子 id
      *
-     * @return postid - 帖子 id
+     * @return postId - 帖子 id
      */
-    public Long getPostid() {
-        return postid;
+    public Long getPostId() {
+        return postId;
     }
 
     /**
      * 设置帖子 id
      *
-     * @param postid 帖子 id
+     * @param postId 帖子 id
      */
-    public void setPostid(Long postid) {
-        this.postid = postid;
+    public void setPostId(Long postId) {
+        this.postId = postId;
     }
 
     /**
      * 获取创建用户 id
      *
-     * @return userid - 创建用户 id
+     * @return userId - 创建用户 id
      */
-    public Long getUserid() {
-        return userid;
+    public Long getUserId() {
+        return userId;
     }
 
     /**
      * 设置创建用户 id
      *
-     * @param userid 创建用户 id
+     * @param userId 创建用户 id
      */
-    public void setUserid(Long userid) {
-        this.userid = userid;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     /**
      * 获取创建时间
      *
-     * @return createtime - 创建时间
+     * @return createTime - 创建时间
      */
-    public Date getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
     /**
      * 设置创建时间
      *
-     * @param createtime 创建时间
+     * @param createTime 创建时间
      */
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**
      * 获取更新时间
      *
-     * @return updatetime - 更新时间
+     * @return updateTime - 更新时间
      */
-    public Date getUpdatetime() {
-        return updatetime;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
     /**
      * 设置更新时间
      *
-     * @param updatetime 更新时间
+     * @param updateTime 更新时间
      */
-    public void setUpdatetime(Date updatetime) {
-        this.updatetime = updatetime;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }
