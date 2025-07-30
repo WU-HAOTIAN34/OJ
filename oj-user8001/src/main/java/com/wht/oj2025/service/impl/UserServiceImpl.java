@@ -1,5 +1,6 @@
 package com.wht.oj2025.service.impl;
 
+import com.wht.oj2025.entity.User;
 import com.wht.oj2025.mapper.UserMapper;
 import com.wht.oj2025.service.UserService;
 import jakarta.annotation.Resource;
@@ -11,4 +12,9 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private UserMapper userMapper;
+
+    @Override
+    public User createUser(User user) {
+        return null;
+    }
 }

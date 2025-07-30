@@ -1,5 +1,6 @@
 package com.wht.oj2025.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -9,7 +10,7 @@ import javax.persistence.Table;
  * 表名：question_submit
 */
 @Table(name = "question_submit")
-public class QuestionSubmit {
+public class QuestionSubmit implements Serializable {
     /**
      * id
      */

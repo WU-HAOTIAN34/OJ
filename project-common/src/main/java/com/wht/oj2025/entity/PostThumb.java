@@ -4,13 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 表名：post_thumb
 */
 @Table(name = "post_thumb")
-public class PostThumb {
+public class PostThumb implements Serializable {
     /**
      * id
      */

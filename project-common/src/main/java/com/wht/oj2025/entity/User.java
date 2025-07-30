@@ -1,5 +1,12 @@
 package com.wht.oj2025.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -8,8 +15,12 @@ import javax.persistence.Table;
 /**
  * 表名：user
 */
+@Builder
+@Accessors(chain = true)
 @Table(name = "user")
-public class User {
+@NoArgsConstructor
+@AllArgsConstructor
+public class User implements Serializable {
     /**
      * id
      */
