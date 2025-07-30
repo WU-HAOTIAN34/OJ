@@ -1,0 +1,13 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: oj-gateway-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        group: GROUP
+  config:
+    import: nacos:oj-gateway-service-dev.yaml?group=DEFAULT_GROUP
