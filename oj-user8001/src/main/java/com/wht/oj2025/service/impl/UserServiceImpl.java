@@ -4,12 +4,14 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateTime;
 import com.wht.oj2025.constant.CommonConstant;
 import com.wht.oj2025.constant.UserConstant;
+import com.wht.oj2025.dto.UserLoginDTO;
 import com.wht.oj2025.dto.UserRegisterDTO;
 import com.wht.oj2025.entity.User;
 import com.wht.oj2025.exception.BaseException;
 import com.wht.oj2025.exception.ParameterException;
 import com.wht.oj2025.mapper.UserMapper;
 import com.wht.oj2025.service.UserService;
+import com.wht.oj2025.vo.UserVO;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
@@ -62,5 +64,24 @@ public class UserServiceImpl implements UserService {
             return user;
 
         }
+    }
+
+
+    public UserVO login(UserLoginDTO userLoginDTO){
+        Example example = new Example(User.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("user_account", userLoginDTO.getUserAccount());
+        List<User> users = userMapper.selectByExample(example);
+        if (users.isEmpty()) {
+            throw new BaseException(UserConstant.ACCOUNT_NOT_EXIST);
+        }
+        if (!DigestUtils.md5DigestAsHex((UserConstant.PASSWORD_SALT
+                + userLoginDTO.getUserPassword()).getBytes())
+                .equals(users.get(0).getUserPassword())) {
+            throw new BaseException(UserConstant.PASSWORD_INCORRECT);
+        }
+        UserVO userVO = new UserVO();
+        BeanUtil.copyProperties(users.get(0), userVO);
+        return userVO;
     }
 }
