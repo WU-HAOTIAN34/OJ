@@ -12,6 +12,7 @@
         <module>project-common</module>
         <module>mapper-generator</module>
         <module>oj-user8001</module>
+        <module>oj-gateway9001</module>
     </modules>
 
     <properties>

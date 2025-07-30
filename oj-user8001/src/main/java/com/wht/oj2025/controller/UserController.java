@@ -14,7 +14,9 @@ import com.wht.oj2025.result.Result;
 import com.wht.oj2025.service.UserService;
 import com.wht.oj2025.vo.UserVO;
 import jakarta.annotation.Resource;
+
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -44,11 +46,16 @@ public class UserController {
         return Result.success(res);
     }
 
+    @GetMapping("/get/login")
+    public Result<UserVO> getLoginUser() {
+        return Result.success(null);
+    }
+
 
     @GetMapping("")
-    public Result<User> test() {
+    public Result<String> test(@Value("${info.info}") String st) {
         ResponseCode success = ResponseCode.SUCCESS;
-        return Result.success();
+        return Result.success(st);
 
     }
 

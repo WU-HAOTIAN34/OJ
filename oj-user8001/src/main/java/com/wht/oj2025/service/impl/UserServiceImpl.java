@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserService {
     public UserVO login(UserLoginDTO userLoginDTO){
         Example example = new Example(User.class);
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("user_account", userLoginDTO.getUserAccount());
+        criteria.andEqualTo("userAccount", userLoginDTO.getUserAccount());
         List<User> users = userMapper.selectByExample(example);
         if (users.isEmpty()) {
             throw new BaseException(UserConstant.ACCOUNT_NOT_EXIST);
