@@ -9,6 +9,12 @@ public interface UserConstant {
     public static final String ACCOUNT_REPEAT_ERROR = "用户名已存在";
     public static final String ACCOUNT_NOT_EXIST = "用户名不存在";
     public static final String PASSWORD_INCORRECT = "密码错误";
-
+    public static final String USER_LOGIN_STATE = "user_login";
+    public static final String USER_ADMIN = "admin";
+    public static final String USER_BAN = "ban";
+    public static final String USER_DEFAULT_ROLE = "user";
+    public static final String USER_NOT_LOGIN = "未登录";
+    public static final String USER_BANNED = "账号已被封禁";
+    public static final String USER_DELETED = "账号已被删除";
 
 }

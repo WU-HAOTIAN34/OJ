@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import tk.mybatis.spring.annotation.MapperScan;
 
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.wht")
 @MapperScan("com.wht.oj2025.mapper")
 @EnableDiscoveryClient
 //@EnableFeignClients

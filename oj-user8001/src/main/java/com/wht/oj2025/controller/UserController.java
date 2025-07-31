@@ -15,6 +15,7 @@ import com.wht.oj2025.service.UserService;
 import com.wht.oj2025.vo.UserVO;
 import jakarta.annotation.Resource;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -40,16 +41,20 @@ public class UserController {
 
     @PostMapping("/login")
     @CheckParams
-    public Result<UserVO> login(@RequestBody UserLoginDTO userLoginDTO) {
+    public Result<UserVO> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletRequest request) {
         log.info("login user : {}", userLoginDTO);
-        UserVO res = userService.login(userLoginDTO);
+        UserVO res = userService.login(userLoginDTO, request);
         return Result.success(res);
     }
 
-    @GetMapping("/get/login")
-    public Result<UserVO> getLoginUser() {
-        return Result.success(null);
+    @GetMapping("/getLogin")
+    public Result<UserVO> getLoginUser(HttpServletRequest request) {
+        log.info("查询登陆状态");
+        UserVO res = userService.getLoginUser(request);
+        return Result.success(res);
     }
+
+
 
 
     @GetMapping("")
