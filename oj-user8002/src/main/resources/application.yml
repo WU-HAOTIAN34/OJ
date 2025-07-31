@@ -1,0 +1,29 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: oj-user-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        group: GROUP
+  config:
+    import: nacos:oj-user-service-dev.yaml?group=DEFAULT_GROUP
+
+
+
+# nacos oj-user-service-dev.yaml
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.wht.oj2025.entity
+#  configuration:
+#    map-underscore-to-camel-case: true
+#spring:
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/oj_user?useUnicode=true&characterEncoding=utf-8&useSSL=false
+#    username: root
+#    password: wht20020930

@@ -1,25 +1,18 @@
 package com.wht.oj2025.controller;
 
 
-
 import com.wht.oj2025.annotation.CheckParams;
-import com.wht.oj2025.constant.CommonConstant;
-import com.wht.oj2025.constant.UserConstant;
 import com.wht.oj2025.dto.UserLoginDTO;
 import com.wht.oj2025.dto.UserRegisterDTO;
 import com.wht.oj2025.entity.User;
 import com.wht.oj2025.enumeration.ResponseCode;
-import com.wht.oj2025.exception.ParameterException;
 import com.wht.oj2025.result.Result;
 import com.wht.oj2025.service.UserService;
 import com.wht.oj2025.vo.UserVO;
 import jakarta.annotation.Resource;
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 
 @RestController

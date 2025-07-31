@@ -9,5 +9,6 @@ spring:
       discovery:
         server-addr: localhost:8848
         group: GROUP
+
   config:
     import: nacos:oj-gateway-service-dev.yaml?group=DEFAULT_GROUP

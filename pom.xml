@@ -13,6 +13,7 @@
         <module>mapper-generator</module>
         <module>oj-user8001</module>
         <module>oj-gateway9001</module>
+        <module>oj-user8002</module>
     </modules>
 
     <properties>
