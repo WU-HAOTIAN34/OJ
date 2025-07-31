@@ -16,6 +16,7 @@ import com.wht.oj2025.vo.UserVO;
 import jakarta.annotation.Resource;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -50,6 +51,7 @@ public class UserController {
     @GetMapping("/getLogin")
     public Result<UserVO> getLoginUser(HttpServletRequest request) {
         log.info("查询登陆状态");
+        HttpSession session = request.getSession();
         UserVO res = userService.getLoginUser(request);
         return Result.success(res);
     }
