@@ -25,6 +25,8 @@ public class User implements Serializable {
     /**
      * id
      */
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(generator = "JDBC")
     private Long id;

@@ -5,16 +5,19 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 表名：question
 */
 @Table(name = "question")
-public class Question {
+public class Question implements Serializable {
     /**
      * id
      */
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(generator = "JDBC")
     private Long id;

@@ -3,16 +3,19 @@ package com.wht.oj2025.entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 表名：post_thumb
 */
 @Table(name = "post_thumb")
-public class PostThumb {
+public class PostThumb implements Serializable {
     /**
      * id
      */
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(generator = "JDBC")
     private Long id;
