@@ -2,14 +2,15 @@ package com.wht.oj2025.controller;
 
 
 import com.wht.oj2025.annotation.CheckParams;
-import com.wht.oj2025.dto.UserLoginDTO;
-import com.wht.oj2025.dto.UserRegisterDTO;
+import com.wht.oj2025.dto.UserDTO;
 import com.wht.oj2025.entity.User;
 import com.wht.oj2025.enumeration.ResponseCode;
 import com.wht.oj2025.result.Result;
 import com.wht.oj2025.service.UserService;
 import com.wht.oj2025.vo.UserVO;
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -24,25 +25,30 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
-    @CheckParams
-    public Result<Long> register(@RequestBody UserRegisterDTO userRegisterDTO) {
-        log.info("register user : {}", userRegisterDTO);
-        User res = userService.register(userRegisterDTO);
+    @CheckParams(required = "userAccount,userPassword,checkPassword")
+    public Result<Long> register(@RequestBody UserDTO userDTO) {
+        log.info("register user : {}", userDTO);
+        User res = userService.register(userDTO);
         return Result.success(res.getId());
     }
 
     @PostMapping("/login")
-    @CheckParams
-    public Result<UserVO> login(@RequestBody UserLoginDTO userLoginDTO) {
-        log.info("login user : {}", userLoginDTO);
-        UserVO res = userService.login(userLoginDTO);
+    @CheckParams(required = "userAccount,userPassword")
+    public Result<UserVO> login(@RequestBody UserDTO userDTO, HttpServletRequest request) {
+        log.info("login user : {}", userDTO);
+        UserVO res = userService.login(userDTO, request);
         return Result.success(res);
     }
 
-    @GetMapping("/get/login")
-    public Result<UserVO> getLoginUser() {
-        return Result.success(null);
+    @GetMapping("/getLogin")
+    public Result<UserVO> getLoginUser(HttpServletRequest request) {
+        log.info("查询登陆状态");
+        HttpSession session = request.getSession();
+        UserVO res = userService.getLoginUser(request);
+        return Result.success(res);
     }
+
+
 
 
     @GetMapping("")

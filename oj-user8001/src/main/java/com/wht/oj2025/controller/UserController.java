@@ -3,13 +3,9 @@ package com.wht.oj2025.controller;
 
 
 import com.wht.oj2025.annotation.CheckParams;
-import com.wht.oj2025.constant.CommonConstant;
-import com.wht.oj2025.constant.UserConstant;
-import com.wht.oj2025.dto.UserLoginDTO;
-import com.wht.oj2025.dto.UserRegisterDTO;
+import com.wht.oj2025.dto.UserDTO;
 import com.wht.oj2025.entity.User;
 import com.wht.oj2025.enumeration.ResponseCode;
-import com.wht.oj2025.exception.ParameterException;
 import com.wht.oj2025.result.Result;
 import com.wht.oj2025.service.UserService;
 import com.wht.oj2025.vo.UserVO;
@@ -33,18 +29,18 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
-    @CheckParams
-    public Result<Long> register(@RequestBody UserRegisterDTO userRegisterDTO) {
-        log.info("register user : {}", userRegisterDTO);
-        User res = userService.register(userRegisterDTO);
+    @CheckParams(required = "userAccount,userPassword,checkPassword")
+    public Result<Long> register(@RequestBody UserDTO userDTO) {
+        log.info("register user : {}", userDTO);
+        User res = userService.register(userDTO);
         return Result.success(res.getId());
     }
 
     @PostMapping("/login")
-    @CheckParams
-    public Result<UserVO> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletRequest request) {
-        log.info("login user : {}", userLoginDTO);
-        UserVO res = userService.login(userLoginDTO, request);
+    @CheckParams(required = "userAccount,userPassword")
+    public Result<UserVO> login(@RequestBody UserDTO userDTO, HttpServletRequest request) {
+        log.info("login user : {}", userDTO);
+        UserVO res = userService.login(userDTO, request);
         return Result.success(res);
     }
 

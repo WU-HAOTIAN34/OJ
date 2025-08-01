@@ -1,0 +1,14 @@
+server:
+  port: 8011
+
+spring:
+  application:
+    name: oj-question-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        group: GROUP
+  config:
+    import[0]: nacos:oj-question-service-dev.yaml?group=GROUP
+    import[1]: nacos:oj-common-service-dev.yaml?group=GROUP
