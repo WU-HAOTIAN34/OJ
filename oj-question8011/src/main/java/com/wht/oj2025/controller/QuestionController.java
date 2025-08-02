@@ -26,7 +26,7 @@ public class QuestionController {
     private QuestionService questionService;
 
     @CheckParams(required = "title,content,tags,answer,judgeCase,judgeConfig")
-    @PostMapping("/add")
+    @PostMapping("/create")
     public Result<Long> createQuestion(@RequestBody QuestionDTO questionDTO) {
         log.info("创建题目");
         Question res = questionService.createQuestion(questionDTO);

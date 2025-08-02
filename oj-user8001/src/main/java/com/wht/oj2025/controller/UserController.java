@@ -52,16 +52,17 @@ public class UserController {
         return Result.success(res);
     }
 
-
-
-
-    @GetMapping("")
-    public Result<String> test(@Value("${server.port}") String st) {
-        ResponseCode success = ResponseCode.SUCCESS;
-        return Result.success(st);
-
+    @PostMapping("/logout")
+    public Result<Boolean> userLogout(HttpServletRequest request) {
+        log.info("退出登录");
+        Boolean res = userService.userLogout(request);
+        return Result.success(res);
     }
 
-
-
+    @PostMapping("/update")
+    public Result<Boolean> updateUserInfo(@RequestBody UserVO userVO, HttpServletRequest request) {
+        log.info("update user : {}", userVO.getId());
+        Boolean res = userService.updateUserInfo(userVO, request);
+        return Result.success(res);
+    }
 }

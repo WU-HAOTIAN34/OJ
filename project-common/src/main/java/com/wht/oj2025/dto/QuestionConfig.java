@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class QuestionConfig {
-    private Long time;
-    private Long memory;
-    private Long stack;
+    private Long timeLimit;
+    private Long memoryLimit;
+    private Long stackLimit;
 }

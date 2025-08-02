@@ -10,4 +10,6 @@ public interface UserService {
     User register(UserDTO userDTO);
     UserVO login(UserDTO userDTO, HttpServletRequest request);
     UserVO getLoginUser(HttpServletRequest request);
+    Boolean userLogout(HttpServletRequest request);
+    Boolean updateUserInfo(UserVO userVO, HttpServletRequest request);
 }

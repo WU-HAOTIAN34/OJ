@@ -6,6 +6,7 @@ import com.wht.oj2025.constant.CommonConstant;
 import com.wht.oj2025.constant.UserConstant;
 import com.wht.oj2025.dto.UserDTO;
 import com.wht.oj2025.entity.User;
+import com.wht.oj2025.enumeration.ResponseCode;
 import com.wht.oj2025.exception.BaseException;
 import com.wht.oj2025.exception.ParameterException;
 import com.wht.oj2025.mapper.UserMapper;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 import tk.mybatis.mapper.entity.Example;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Objects;
 
@@ -104,6 +106,40 @@ public class UserServiceImpl implements UserService {
         BeanUtil.copyProperties(user1, userVO);
         user.setUserRole(userVO.getUserRole());
         return userVO;
+    }
+
+    public Boolean userLogout(HttpServletRequest request){
+        if (request.getSession().getAttribute(UserConstant.USER_LOGIN_STATE) == null) {
+            throw new BaseException(UserConstant.USER_NOT_LOGIN);
+        }
+        request.getSession().removeAttribute(UserConstant.USER_LOGIN_STATE);
+        return true;
+    }
+
+    public Boolean updateUserInfo(UserVO userVO, HttpServletRequest request){
+        if (userVO == null) {
+            throw new ParameterException(ResponseCode.PARAMS_ERROR);
+        }
+        if (userVO.getUserName().length() > 16) {
+            throw new ParameterException(UserConstant.USERNAME_LENGTH_ERROR);
+        }
+        if (userVO.getUserProfile().length() > 64) {
+            throw new ParameterException(UserConstant.USERPROFILE_LENGTH_ERROR);
+        }
+        User user = new User();
+        user.setUpdateTime(DateTime.now());
+        BeanUtil.copyProperties(userVO, user);
+        Example example = new Example(User.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("id", user.getId());
+        int i = userMapper.updateByExample(user, example);
+        if (i == 0) {
+            throw new BaseException(CommonConstant.DATABASE_ERROR);
+        }
+        request.getSession().removeAttribute(UserConstant.USER_LOGIN_STATE);
+        User user1 = userMapper.selectByPrimaryKey(user.getId());
+        request.getSession().setAttribute(UserConstant.USER_LOGIN_STATE, user1);
+        return true;
     }
 
 

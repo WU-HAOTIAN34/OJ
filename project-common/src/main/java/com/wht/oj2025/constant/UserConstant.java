@@ -16,5 +16,7 @@ public interface UserConstant {
     public static final String USER_NOT_LOGIN = "未登录";
     public static final String USER_BANNED = "账号已被封禁";
     public static final String USER_DELETED = "账号已被删除";
+    public static final String USERNAME_LENGTH_ERROR = "用户昵称长度不得大于16字符";
+    public static final String USERPROFILE_LENGTH_ERROR = "用户简介长度不得大于64字符";
 
 }

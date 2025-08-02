@@ -55,7 +55,7 @@ public class QuestionServiceImpl implements QuestionService {
             throw new BaseException(QuestionConstant.TITLE_LENGTH_ERROR);
         }
         Long id = userFeignApi.getLoginUser().getData().getId();
-        question.setId(id);
+        question.setUserId(id);
         question.setSubmitNum(CommonConstant.INITIAL_NUM);
         question.setAcceptedNum(CommonConstant.INITIAL_NUM);
         question.setFavourNum(CommonConstant.INITIAL_NUM);
