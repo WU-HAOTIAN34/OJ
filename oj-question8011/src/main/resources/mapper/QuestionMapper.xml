@@ -21,4 +21,23 @@
     <result column="judgeCase" jdbcType="LONGVARCHAR" property="judgeCase" />
     <result column="judgeConfig" jdbcType="LONGVARCHAR" property="judgeConfig" />
   </resultMap>
+
+  <select id="queryList" resultType="com.wht.oj2025.entity.Question">
+    select * from question
+    <where>
+      is_delete = 0
+      <if test="questionDTO.tags != null and questionDTO.tags.size() > 0">
+        <foreach collection="questionDTO.tags" item="tag" separator="" open="" close="">
+          AND tags LIKE CONCAT('%', #{tag}, '%')
+        </foreach>
+      </if>
+      <if test="questionDTO.title != null and questionDTO.title != ''">
+        and title like concat('%', #{questionDTO.title}, '%')
+      </if>
+    </where>
+
+    limit #{questionDTO.startPage}, #{questionDTO.pageSize}
+
+  </select>
+
 </mapper>

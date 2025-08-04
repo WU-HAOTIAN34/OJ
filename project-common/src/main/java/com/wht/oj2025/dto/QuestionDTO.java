@@ -14,6 +14,10 @@ public class QuestionDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    Integer startPage;
+
+    Integer pageSize;
+
     private String title;
 
     private List<String> tags;
