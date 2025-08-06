@@ -10,5 +10,5 @@ spring:
         server-addr: localhost:8848
         group: GROUP
   config:
-    import[0]: nacos:oj-question-service-dev.yaml?group=GROUP
-    import[1]: nacos:oj-common-service-dev.yaml?group=GROUP
+    import[0]: nacos:oj-question-service-dev.yaml?group=DEFAULT_GROUP
+    import[1]: nacos:oj-common-dev.yaml?group=DEFAULT_GROUP

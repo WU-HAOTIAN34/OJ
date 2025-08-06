@@ -29,6 +29,8 @@ public class QuestionVO implements Serializable {
 
     private Integer favourNum;
 
+    private String answer;
+
     private Long userId;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")

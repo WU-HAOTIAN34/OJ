@@ -108,20 +108,30 @@ public class QuestionServiceImpl implements QuestionService {
         question.setJudgeCase(GSON.toJson(questionDTO.getJudgeCase()));
         question.setJudgeConfig(GSON.toJson(questionDTO.getJudgeConfig()));
         question.setUpdateTime(DateTime.now());
-        if (question.getTitle().length() > 80) {
+        if (question.getTitle() != null && question.getTitle().length() > 80) {
             throw new BaseException(QuestionConstant.TITLE_LENGTH_ERROR);
         }
-        if (question.getContent().length() > 8192) {
+        if (question.getContent() != null && question.getContent().length() > 8192) {
             throw new BaseException(QuestionConstant.TITLE_LENGTH_ERROR);
         }
-        if (question.getAnswer().length() > 8192) {
+        if (question.getAnswer() != null && question.getAnswer().length() > 8192) {
             throw new BaseException(QuestionConstant.TITLE_LENGTH_ERROR);
         }
-        if (question.getJudgeCase().length() > 8192) {
+        if (question.getJudgeCase() != null && question.getJudgeCase().length() > 8192) {
             throw new BaseException(QuestionConstant.TITLE_LENGTH_ERROR);
         }
-        if (question.getJudgeConfig().length() > 8192) {
+        if (question.getJudgeConfig() != null && question.getJudgeConfig().length() > 8192) {
             throw new BaseException(QuestionConstant.TITLE_LENGTH_ERROR);
+        }
+        Question question1 = questionMapper.selectByPrimaryKey(id);
+        if (question1 == null || question1.getIsDelete().equals(CommonConstant.STATE_DELETED)) {
+            throw new BaseException(QuestionConstant.QUESTION_EXIST_ERROR);
+        }
+        if (question.getSubmitNum() != null){
+            question.setSubmitNum(question1.getSubmitNum()+1);
+        }
+        if (question.getAcceptedNum() != null){
+            question.setAcceptedNum(question1.getAcceptedNum()+1);
         }
         Example example = new Example(Question.class);
         Example.Criteria criteria = example.createCriteria();
@@ -161,13 +171,13 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
 
-    public PageResult queryQuestion(QuestionDTO questionDTO, HttpServletRequest request){
+    public PageResult queryQuestion(QuestionDTO questionDTO){
         if (questionDTO.getStartPage() <= 0){
             throw new BaseException(ResponseCode.PARAMS_ERROR);
         }
         questionDTO.setStartPage((questionDTO.getStartPage()-1)*questionDTO.getPageSize());
         List<Question> questions = questionMapper.queryList(questionDTO);
-        User user = (User) request.getSession().getAttribute(UserConstant.USER_LOGIN_STATE);
+        UserVO user = userFeignApi.getLoginUser().getData();
         if (user != null && user.getUserRole().equals(UserConstant.USER_ADMIN)){
             List<QuestionVO> res = new ArrayList<>();
             for (Question question : questions) {

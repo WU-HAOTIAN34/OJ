@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wht.oj2025.mapper.QuestionSubmitMapper">
+  <resultMap id="BaseResultMap" type="com.wht.oj2025.entity.QuestionSubmit">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="language" jdbcType="VARCHAR" property="language" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="questionId" jdbcType="BIGINT" property="questionId" />
+    <result column="userId" jdbcType="BIGINT" property="userId" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="isDelete" jdbcType="TINYINT" property="isDelete" />
+    <result column="code" jdbcType="LONGVARCHAR" property="code" />
+    <result column="judgeInfo" jdbcType="LONGVARCHAR" property="judgeInfo" />
+  </resultMap>
+</mapper>

@@ -18,6 +18,10 @@ public class QuestionDTO implements Serializable {
 
     Integer pageSize;
 
+    Integer submitNum;
+
+    Integer acceptedNum;
+
     private String title;
 
     private List<String> tags;

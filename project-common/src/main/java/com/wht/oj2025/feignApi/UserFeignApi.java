@@ -15,12 +15,6 @@ import org.springframework.web.bind.annotation.RequestHeader;
 @FeignClient("oj-user-service")
 public interface UserFeignApi {
 
-    @PostMapping("/user/login")
-    Result<UserVO> login(@RequestBody UserDTO userDTO);
-
-    @PostMapping("/user/register")
-    Result<Long> register(@RequestBody UserDTO userDTO);
-
     @GetMapping("/user/getLogin")
     Result<UserVO> getLoginUser();
 }

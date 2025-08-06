@@ -16,7 +16,7 @@ public interface QuestionService {
     Boolean updateQuestion(QuestionDTO questionDTO, Long id);
     QuestionDTO adminGetQuestionInfo(Long id);
     QuestionVO userGetQuestionInfo(Long id);
-    PageResult queryQuestion(QuestionDTO questionDTO, HttpServletRequest request);
+    PageResult queryQuestion(QuestionDTO questionDTO);
     UserVO test();
 
 }

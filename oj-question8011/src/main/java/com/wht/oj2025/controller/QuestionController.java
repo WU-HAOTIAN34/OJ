@@ -75,7 +75,7 @@ public class QuestionController {
     public Result<PageResult> getQuestionList(@RequestBody QuestionDTO questionDTO,
                                               HttpServletRequest request) {
         log.info("查询题目：{}", questionDTO);
-        PageResult pageResult = questionService.queryQuestion(questionDTO, request);
+        PageResult pageResult = questionService.queryQuestion(questionDTO);
         return Result.success(pageResult);
     }
 

@@ -15,6 +15,7 @@
         <module>oj-gateway9001</module>
         <module>oj-user8002</module>
         <module>oj-question8011</module>
+        <module>oj-judgement8021</module>
     </modules>
 
     <properties>

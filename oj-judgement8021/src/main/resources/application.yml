@@ -1,0 +1,14 @@
+server:
+  port: 8021
+
+spring:
+  application:
+    name: oj-judgement-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        group: GROUP
+  config:
+    import[0]: nacos:oj-judgement-service-dev.yaml?group=DEFAULT_GROUP
+    import[1]: nacos:oj-common-dev.yaml?group=DEFAULT_GROUP
