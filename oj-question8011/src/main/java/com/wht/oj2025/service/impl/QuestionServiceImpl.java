@@ -104,23 +104,25 @@ public class QuestionServiceImpl implements QuestionService {
     public Boolean updateQuestion(QuestionDTO questionDTO, Long id){
         Question question = new Question();
         BeanUtils.copyProperties(questionDTO,question);
-        question.setTags(GSON.toJson(questionDTO.getTags()));
-        question.setJudgeCase(GSON.toJson(questionDTO.getJudgeCase()));
-        question.setJudgeConfig(GSON.toJson(questionDTO.getJudgeConfig()));
-        question.setUpdateTime(DateTime.now());
-        if (question.getTitle() != null && question.getTitle().length() > 80) {
+        if (questionDTO.getTags() != null) {
+            question.setTags(GSON.toJson(questionDTO.getTags()));
+            question.setJudgeCase(GSON.toJson(questionDTO.getJudgeCase()));
+            question.setJudgeConfig(GSON.toJson(questionDTO.getJudgeConfig()));
+            question.setUpdateTime(DateTime.now());
+        }
+        if (questionDTO.getTitle() != null && question.getTitle().length() > 80) {
             throw new BaseException(QuestionConstant.TITLE_LENGTH_ERROR);
         }
-        if (question.getContent() != null && question.getContent().length() > 8192) {
+        if (questionDTO.getContent() != null && question.getContent().length() > 8192) {
             throw new BaseException(QuestionConstant.TITLE_LENGTH_ERROR);
         }
-        if (question.getAnswer() != null && question.getAnswer().length() > 8192) {
+        if (questionDTO.getAnswer() != null && question.getAnswer().length() > 8192) {
             throw new BaseException(QuestionConstant.TITLE_LENGTH_ERROR);
         }
-        if (question.getJudgeCase() != null && question.getJudgeCase().length() > 8192) {
+        if (questionDTO.getJudgeCase() != null && question.getJudgeCase().length() > 8192) {
             throw new BaseException(QuestionConstant.TITLE_LENGTH_ERROR);
         }
-        if (question.getJudgeConfig() != null && question.getJudgeConfig().length() > 8192) {
+        if (questionDTO.getJudgeConfig() != null && question.getJudgeConfig().length() > 8192) {
             throw new BaseException(QuestionConstant.TITLE_LENGTH_ERROR);
         }
         Question question1 = questionMapper.selectByPrimaryKey(id);

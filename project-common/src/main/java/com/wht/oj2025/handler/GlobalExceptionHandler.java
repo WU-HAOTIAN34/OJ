@@ -16,7 +16,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({RuntimeException.class})
     public Result<String> baseExceptionHandler(RuntimeException e) {
         log.error(e.getMessage());
-        return Result.error(ResponseCode.INTERNAL_SERVER_ERROR, "");
+        return Result.error(ResponseCode.INTERNAL_SERVER_ERROR, e.getMessage());
     }
 
     @ExceptionHandler({BaseException.class, ParameterException.class})

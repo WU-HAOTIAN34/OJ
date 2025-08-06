@@ -16,4 +16,20 @@
     <result column="code" jdbcType="LONGVARCHAR" property="code" />
     <result column="judgeInfo" jdbcType="LONGVARCHAR" property="judgeInfo" />
   </resultMap>
+
+  <select id="queryList" resultType="com.wht.oj2025.entity.QuestionSubmit">
+    select * from question_submit
+    <where>
+      is_delete = 0
+      <if test="q.questionId != null and q.questionId != ''">
+        and question_id = #{q.questionId})
+      </if>
+      <if test="q.language != null and q.language != ''">
+        and language = #{q.language})
+      </if>
+    </where>
+
+    limit #{q.startPage}, #{q.pageSize}
+
+  </select>
 </mapper>
