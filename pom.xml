@@ -16,6 +16,7 @@
         <module>oj-user8002</module>
         <module>oj-question8011</module>
         <module>oj-judgement8021</module>
+        <module>oj-codeSandBox8031</module>
     </modules>
 
     <properties>

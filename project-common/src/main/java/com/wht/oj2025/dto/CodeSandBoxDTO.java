@@ -19,6 +19,8 @@ public class CodeSandBoxDTO implements Serializable {
 
     private String language;
 
+    private Long time;
+
     private String code;
 
     private List<String> cases;

@@ -26,5 +26,14 @@ public enum LanguageEnum {
                 .collect(Collectors.toList());
     }
 
+    public static LanguageEnum forValue(String value) {
+        for (LanguageEnum e : LanguageEnum.values()) {
+            if (e.value.equals(value)) {
+                return e;
+            }
+        }
+        return null;
+    }
+
 
 }

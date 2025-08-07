@@ -124,6 +124,7 @@ public class QuestionSubmitServiceImpl implements QuestionSubmitService {
                 .language(questionSubmit.getLanguage())
                 .code(questionSubmit.getCode())
                 .cases(inputList)
+                .time(questionDTO.getJudgeConfig().getTimeLimit())
                 .build();
         QuestionSubmit example = new QuestionSubmit();
         example.setId(questionSubmit.getId());
