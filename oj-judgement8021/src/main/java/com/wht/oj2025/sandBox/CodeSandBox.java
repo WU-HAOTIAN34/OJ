@@ -1,4 +1,4 @@
-package com.wht.oj2025.judge;
+package com.wht.oj2025.sandBox;
 
 
 import com.wht.oj2025.dto.CodeSandBoxDTO;

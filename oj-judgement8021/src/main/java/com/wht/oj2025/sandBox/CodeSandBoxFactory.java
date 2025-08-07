@@ -1,11 +1,8 @@
-package com.wht.oj2025.judge;
+package com.wht.oj2025.sandBox;
 
 
-import com.wht.oj2025.dto.CodeSandBoxDTO;
-import com.wht.oj2025.judge.impl.RemoteSandBox;
-import com.wht.oj2025.judge.impl.ThirdPartSandBox;
-import com.wht.oj2025.result.CodeSandBoxResult;
-import org.springframework.beans.factory.annotation.Value;
+import com.wht.oj2025.sandBox.impl.RemoteSandBox;
+import com.wht.oj2025.sandBox.impl.ThirdPartSandBox;
 
 public class CodeSandBoxFactory {
 
