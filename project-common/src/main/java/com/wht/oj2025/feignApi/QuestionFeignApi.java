@@ -5,6 +5,7 @@ import com.wht.oj2025.dto.QuestionDTO;
 import com.wht.oj2025.result.Result;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,9 @@ public interface QuestionFeignApi {
     @PostMapping("/question/update/{id}")
     Result<Boolean> updateQuestion(@RequestBody QuestionDTO questionDTO,
                                           @PathVariable("id") Long id);
+
+    @GetMapping("/question/inside/get/{id}")
+    Result<QuestionDTO> getQuestionInfo(@PathVariable("id") Long id);
 
 
 }

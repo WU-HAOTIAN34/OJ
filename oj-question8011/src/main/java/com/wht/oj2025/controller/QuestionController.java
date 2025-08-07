@@ -79,7 +79,12 @@ public class QuestionController {
         return Result.success(pageResult);
     }
 
-    
+    @GetMapping("/inside/get/{id}")
+    public Result<QuestionDTO> getQuestionInfo(@PathVariable("id") Long id) {
+        log.info("查看题目信息：{}", id);
+        QuestionDTO res = questionService.adminGetQuestionInfo(id);
+        return Result.success(res);
+    }
 
 
 

@@ -1,7 +1,6 @@
 package com.wht.oj2025.result;
 
 
-import com.wht.oj2025.dto.QuestionConfig;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +12,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CodeResult {
+public class CodeSandBoxResult {
 
     private Integer status;
 
@@ -21,6 +20,6 @@ public class CodeResult {
 
     private String msg;
 
-    private QuestionConfig questionConfig;
+    private JudgeResult judgeResult;
 
 }

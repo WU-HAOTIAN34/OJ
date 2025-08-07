@@ -22,10 +22,10 @@
     <where>
       is_delete = 0
       <if test="q.questionId != null and q.questionId != ''">
-        and question_id = #{q.questionId})
+        and question_id = #{q.questionId}
       </if>
       <if test="q.language != null and q.language != ''">
-        and language = #{q.language})
+        and language = #{q.language}
       </if>
     </where>
 
