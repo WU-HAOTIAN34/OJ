@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Value;
 
 public class CodeSandBoxFactory {
 
-    @Value("${sand-box-method:native}")
-    private static String sandBoxMethod;
 
-    public static CodeSandBox forInstance(String language) {
+
+    public static CodeSandBox forInstance(String language, String sandBoxMethod) {
+
         String value = LanguageEnum.JAVA.getValue();
         if (sandBoxMethod.equals("native")) {
             switch (LanguageEnum.forValue(language)) {

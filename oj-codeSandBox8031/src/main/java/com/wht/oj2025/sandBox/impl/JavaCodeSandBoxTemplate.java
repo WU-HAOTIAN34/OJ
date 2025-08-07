@@ -71,10 +71,6 @@ public abstract class JavaCodeSandBoxTemplate implements CodeSandBox {
                 new Thread(() -> {
                     try {
                         Thread.sleep(time);
-                        ExecuteResult executeResult = new ExecuteResult();
-                        executeResult.setExitCode(1);
-                        executeResult.setMsg("超时");
-                        results.add(executeResult);
                         runProcess.destroy();
 
                     } catch (InterruptedException e) {

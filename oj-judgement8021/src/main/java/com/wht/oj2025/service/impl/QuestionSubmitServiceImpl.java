@@ -12,6 +12,7 @@ import com.wht.oj2025.enumeration.LanguageEnum;
 import com.wht.oj2025.enumeration.QuestionStatus;
 import com.wht.oj2025.enumeration.ResponseCode;
 import com.wht.oj2025.exception.BaseException;
+import com.wht.oj2025.feignApi.CodeSandBoxFeignApi;
 import com.wht.oj2025.feignApi.QuestionFeignApi;
 import com.wht.oj2025.feignApi.UserFeignApi;
 import com.wht.oj2025.sandBox.CodeSandBox;
@@ -47,6 +48,9 @@ public class QuestionSubmitServiceImpl implements QuestionSubmitService {
     @Resource
     private QuestionFeignApi questionFeignApi;
 
+    @Resource
+    private CodeSandBoxFeignApi codeSandBoxFeignApi;
+
     public Long submit(QuestionSubmitDTO questionSubmitDTO) {
         UserVO user = userFeignApi.getLoginUser().getData();
         if (user == null) {
@@ -70,6 +74,7 @@ public class QuestionSubmitServiceImpl implements QuestionSubmitService {
         questionFeignApi.updateQuestion(new QuestionDTO().setSubmitNum(1), questionSubmit.getQuestionId());
         Long id = questionSubmit.getId();
 
+
         CompletableFuture.runAsync(() -> {
             doJudge(questionSubmit);
         });
@@ -92,7 +97,8 @@ public class QuestionSubmitServiceImpl implements QuestionSubmitService {
                     .setJudgeResult(JSONUtil.toBean(questionSubmit.getJudgeInfo(), JudgeResult.class));
             arrayList.add(questionSubmitVO);
         }
-        PageResult pageResult = new PageResult().setPageList(arrayList).setTotal(list.size());
+        PageResult pageResult = new PageResult().setPageList(arrayList).setTotal(questionSubmitMapper.countNum());
+
         return pageResult;
     }
 
@@ -112,7 +118,7 @@ public class QuestionSubmitServiceImpl implements QuestionSubmitService {
         return questionSubmitVO;
     }
 
-    @Value("${code-sand-box:default}")
+    @Value("${code-sand-box:remote}")
     private String codeSandBoxType;
 
     public void doJudge(QuestionSubmit questionSubmit) {
@@ -130,13 +136,14 @@ public class QuestionSubmitServiceImpl implements QuestionSubmitService {
         example.setId(questionSubmit.getId());
         example.setStatus(QuestionStatus.RUNNING.getCode());
         questionSubmitMapper.updateByPrimaryKeySelective(example);
-        CodeSandBoxResult codeSandBoxResult = codeSandBox.execute(codeSandBoxDTO);
+        CodeSandBoxResult codeSandBoxResult = codeSandBoxFeignApi.execute(codeSandBoxDTO).getData();
 
         StrategyContext strategyContext = new StrategyContext().setTargetList(targetList)
                 .setOutputList(codeSandBoxResult.getRes())
                 .setTime(questionDTO.getJudgeConfig().getTimeLimit())
                 .setMemory(questionDTO.getJudgeConfig().getMemoryLimit())
                 .setJudgeResult(codeSandBoxResult.getJudgeResult());
+        strategyContext.getJudgeResult().setMemory(0L);
         LanguageStrategy languageStrategy = LanguageStrategyFactory.forInstance(questionSubmit.getLanguage());
         QuestionStatus questionStatus = languageStrategy.doJudge(strategyContext);
 

@@ -7,7 +7,9 @@ import com.wht.oj2025.result.Result;
 import com.wht.oj2025.sandBox.CodeSandBox;
 import com.wht.oj2025.sandBox.CodeSandBoxFactory;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,10 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/sandBox")
 public class CodeSandBoxController {
 
+    @Value("${sand-box-method:native}")
+    private String sandBoxMethod;
+
     @PostMapping("/execute")
-    public Result<CodeSandBoxResult> execute(CodeSandBoxDTO codeSandBoxDTO) {
+    public Result<CodeSandBoxResult> execute(@RequestBody CodeSandBoxDTO codeSandBoxDTO) {
         log.info("代码沙箱开始运行：{}", codeSandBoxDTO);
-        CodeSandBox codeSandBox = CodeSandBoxFactory.forInstance(codeSandBoxDTO.getLanguage());
+        CodeSandBox codeSandBox = CodeSandBoxFactory.forInstance(codeSandBoxDTO.getLanguage(), sandBoxMethod);
         CodeSandBoxResult res = null;
         if (codeSandBox != null) {
             res = codeSandBox.execute(codeSandBoxDTO);
