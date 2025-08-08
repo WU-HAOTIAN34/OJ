@@ -179,7 +179,13 @@ public class QuestionServiceImpl implements QuestionService {
         }
         questionDTO.setStartPage((questionDTO.getStartPage()-1)*questionDTO.getPageSize());
         List<Question> questions = questionMapper.queryList(questionDTO);
-        UserVO user = userFeignApi.getLoginUser().getData();
+        UserVO user = null;
+        try {
+            Result<UserVO> loginUser = userFeignApi.getLoginUser();
+            user = loginUser.getData();
+        }catch (Exception e){
+            System.out.println("未登录");
+        }
         if (user != null && user.getUserRole().equals(UserConstant.USER_ADMIN)){
             List<QuestionVO> res = new ArrayList<>();
             for (Question question : questions) {
@@ -200,7 +206,7 @@ public class QuestionServiceImpl implements QuestionService {
                         .setContent(null);
                 res.add(questionVO);
             }
-            PageResult pageResult = new PageResult().setPageList(res).setTotal(questions.size());
+            PageResult pageResult = new PageResult().setPageList(res).setTotal(questionMapper.countNum());
             return pageResult;
         }
     }

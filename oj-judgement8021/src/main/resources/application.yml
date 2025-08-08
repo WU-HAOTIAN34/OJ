@@ -9,6 +9,12 @@ spring:
       discovery:
         server-addr: localhost:8848
         group: GROUP
+  rabbitmq:
+    host: localhost
+    port: 15672
+    password: guest
+    username: guest
+
   config:
     import[0]: nacos:oj-judgement-service-dev.yaml?group=DEFAULT_GROUP
     import[1]: nacos:oj-common-dev.yaml?group=DEFAULT_GROUP

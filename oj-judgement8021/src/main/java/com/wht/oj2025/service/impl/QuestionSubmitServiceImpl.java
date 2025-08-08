@@ -15,6 +15,7 @@ import com.wht.oj2025.exception.BaseException;
 import com.wht.oj2025.feignApi.CodeSandBoxFeignApi;
 import com.wht.oj2025.feignApi.QuestionFeignApi;
 import com.wht.oj2025.feignApi.UserFeignApi;
+import com.wht.oj2025.rabbitMQ.QuestionProducer;
 import com.wht.oj2025.sandBox.CodeSandBox;
 import com.wht.oj2025.sandBox.CodeSandBoxFactory;
 import com.wht.oj2025.languageStrategy.LanguageStrategy;
@@ -51,6 +52,9 @@ public class QuestionSubmitServiceImpl implements QuestionSubmitService {
     @Resource
     private CodeSandBoxFeignApi codeSandBoxFeignApi;
 
+    @Resource
+    private QuestionProducer questionProducer;
+
     public Long submit(QuestionSubmitDTO questionSubmitDTO) {
         UserVO user = userFeignApi.getLoginUser().getData();
         if (user == null) {
@@ -74,6 +78,9 @@ public class QuestionSubmitServiceImpl implements QuestionSubmitService {
         questionFeignApi.updateQuestion(new QuestionDTO().setSubmitNum(1), questionSubmit.getQuestionId());
         Long id = questionSubmit.getId();
 
+        Gson gson = new Gson();
+        String json = gson.toJson(questionSubmit);
+       // questionProducer.sendMessage("code_exchange", "my_routingKey", json);
 
         CompletableFuture.runAsync(() -> {
             doJudge(questionSubmit);

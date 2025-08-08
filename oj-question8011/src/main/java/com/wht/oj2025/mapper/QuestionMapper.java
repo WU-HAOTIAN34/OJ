@@ -11,4 +11,7 @@ import java.util.List;
 
 public interface QuestionMapper extends Mapper<Question> {
     List<Question> queryList(@Param("questionDTO") QuestionDTO questionDTO);
+
+    @Select("select count(*) from question where is_delete = 0")
+    Integer countNum();
 }
