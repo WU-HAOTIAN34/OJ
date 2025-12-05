@@ -41,6 +41,7 @@ public class UserController {
     public Result<UserVO> login(@RequestBody UserDTO userDTO, HttpServletRequest request) {
         log.info("login user : {}", userDTO);
         UserVO res = userService.login(userDTO, request);
+
         return Result.success(res);
     }
 

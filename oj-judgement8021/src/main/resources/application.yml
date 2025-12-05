@@ -14,6 +14,8 @@ spring:
     port: 15672
     password: guest
     username: guest
+    publisher-confirm-type: correlated   # 开启确认回调
+    publisher-returns: true              # 开启回退回调（消息未路由时）
 
   config:
     import[0]: nacos:oj-judgement-service-dev.yaml?group=DEFAULT_GROUP

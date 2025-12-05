@@ -14,5 +14,6 @@ spring:
     port: 15672
     password: guest
     username: guest
+
   config:
     import[0]: nacos:oj-common-dev.yaml?group=DEFAULT_GROUP

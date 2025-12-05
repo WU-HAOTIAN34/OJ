@@ -17,6 +17,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.LongAdder;
 
 public abstract class JavaCodeSandBoxTemplate implements CodeSandBox {
 
@@ -47,7 +50,8 @@ public abstract class JavaCodeSandBoxTemplate implements CodeSandBox {
         String cmd = String.format("javac -encoding utf-8 %s", code.getAbsolutePath());
         try {
             Process exec = Runtime.getRuntime().exec(cmd);
-            ExecuteResult res = ProcessUtil.runProcessAndGetMessage(exec, "编译");
+            CountDownLatch countDownLatch = new CountDownLatch(2);
+            ExecuteResult res = ProcessUtil.runProcessAndGetMessage(exec, "编译", countDownLatch);
             if (res.getExitCode() != 0){
                 throw new BaseException(FileConstant.COMPILE_ERROR);
             }
@@ -67,18 +71,21 @@ public abstract class JavaCodeSandBoxTemplate implements CodeSandBox {
 
             try {
                 Process runProcess = Runtime.getRuntime().exec(cmd);
-
+                CountDownLatch countDownLatch = new CountDownLatch(2);
                 new Thread(() -> {
                     try {
                         Thread.sleep(time);
-                        runProcess.destroy();
+
+                        if (countDownLatch.getCount()==2){
+                            runProcess.destroy();
+                        }
 
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
 
                 }).start();
-                ExecuteResult res = ProcessUtil.runProcessAndGetMessage(runProcess, "运行");
+                ExecuteResult res = ProcessUtil.runProcessAndGetMessage(runProcess, "运行",countDownLatch);
                 results.add(res);
                 // System.out.println(res);
             } catch (IOException e) {

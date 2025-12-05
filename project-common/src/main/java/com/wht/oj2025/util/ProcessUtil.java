@@ -8,6 +8,7 @@ import org.springframework.util.StopWatch;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * 进程工具类
@@ -21,14 +22,16 @@ public class ProcessUtil {
      * @param opName
      * @return
      */
-    public static ExecuteResult runProcessAndGetMessage(Process runProcess, String opName) {
+    public static ExecuteResult runProcessAndGetMessage(Process runProcess, String opName, CountDownLatch countDownLatch) {
         ExecuteResult executeMessage = new ExecuteResult();
-
+        
         try {
             StopWatch stopWatch = new StopWatch();
             stopWatch.start();
             // 等待程序执行，获取错误码
             int exitValue = runProcess.waitFor();
+            countDownLatch.countDown();
+            stopWatch.stop();
             executeMessage.setExitCode(exitValue);
             // 正常退出
             if (exitValue == 0) {
@@ -66,7 +69,7 @@ public class ProcessUtil {
                 }
                 executeMessage.setErrorMsg(StringUtils.join(errorOutputStrList, "\n"));
             }
-            stopWatch.stop();
+
             executeMessage.setTime(stopWatch.getLastTaskTimeMillis());
         } catch (Exception e) {
             e.printStackTrace();
